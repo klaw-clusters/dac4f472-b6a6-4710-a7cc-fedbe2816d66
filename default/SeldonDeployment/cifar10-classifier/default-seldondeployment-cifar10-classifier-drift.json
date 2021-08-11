@@ -41,7 +41,7 @@
                                     "--protocol",
                                     "tensorflow.http",
                                     "--storage_uri",
-                                    "gs://seldon-models/alibi-detect/cd/ks/cifar10-0_4_4",
+                                    "gs://seldon-models/alibi-detect/cd/ks/cifar10-0_4_410",
                                     "--reply_url",
                                     "http://seldon-request-logger.seldon-logs",
                                     "--event_type",
