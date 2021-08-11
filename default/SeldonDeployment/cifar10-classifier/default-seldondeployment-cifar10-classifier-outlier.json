@@ -34,7 +34,7 @@
                                     "--protocol",
                                     "tensorflow.http",
                                     "--storage_uri",
-                                    "gs://seldon-models/tfserving/cifar10/resnet32",
+                                    "gs://seldon-models/alibi-detect/od/OutlierVAE/cifar10",
                                     "--reply_url",
                                     "http://seldon-request-logger.seldon-logs",
                                     "--event_type",
