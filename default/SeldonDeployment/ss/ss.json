@@ -6,6 +6,7 @@
         "namespace": "default",
         "creationTimestamp": null,
         "labels": {
+            "app.kubernetes.io/instance": "dac4f472-b6a6-4710-a7cc-fedbe2816d66-default",
             "fluentd": "true"
         }
     },
@@ -43,7 +44,15 @@
                 },
                 "engineResources": {},
                 "svcOrchSpec": {},
-                "traffic": 100
+                "traffic": 100,
+                "explainer": {
+                    "type": "AnchorImages",
+                    "modelUri": "gs://purva-seldon-kfserving/frozen_inference_graph.pb",
+                    "containerSpec": {
+                        "name": "",
+                        "resources": {}
+                    }
+                }
             }
         ],
         "annotations": {
