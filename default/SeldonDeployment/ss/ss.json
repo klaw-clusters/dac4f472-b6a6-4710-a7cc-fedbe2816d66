@@ -1,0 +1,55 @@
+{
+    "kind": "SeldonDeployment",
+    "apiVersion": "machinelearning.seldon.io/v1",
+    "metadata": {
+        "name": "ss",
+        "namespace": "default",
+        "creationTimestamp": null,
+        "labels": {
+            "fluentd": "true"
+        }
+    },
+    "spec": {
+        "name": "ss",
+        "predictors": [
+            {
+                "name": "default",
+                "graph": {
+                    "name": "ss",
+                    "implementation": "TRITON_SERVER",
+                    "modelUri": "gs://purva-seldon-kfserving/frozen_inference_graph.pb",
+                    "logger": {
+                        "mode": "all"
+                    }
+                },
+                "componentSpecs": [
+                    {
+                        "metadata": {
+                            "creationTimestamp": "2021-08-13T05:55:53Z"
+                        },
+                        "spec": {
+                            "containers": [
+                                {
+                                    "name": "ss",
+                                    "resources": {}
+                                }
+                            ]
+                        }
+                    }
+                ],
+                "replicas": 1,
+                "annotations": {
+                    "project.seldon.io/ss": "default"
+                },
+                "engineResources": {},
+                "svcOrchSpec": {},
+                "traffic": 100
+            }
+        ],
+        "annotations": {
+            "seldon.io/engine-seldon-log-messages-externally": "true"
+        },
+        "protocol": "kfserving"
+    },
+    "status": {}
+}
