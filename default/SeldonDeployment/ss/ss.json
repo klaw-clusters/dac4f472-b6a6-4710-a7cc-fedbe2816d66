@@ -16,7 +16,7 @@
                 "name": "default",
                 "graph": {
                     "name": "ss-container",
-                    "implementation": "SKLEARN_SERVER",
+                    "implementation": "TRITON_SERVER",
                     "modelUri": "gs://purva-seldon-kfserving/frozen_inference_graph.pb",
                     "logger": {
                         "mode": "all"
@@ -25,7 +25,7 @@
                 "componentSpecs": [
                     {
                         "metadata": {
-                            "creationTimestamp": "2021-08-16T09:16:19Z"
+                            "creationTimestamp": "2021-08-16T11:06:16Z"
                         },
                         "spec": {
                             "containers": [
@@ -49,7 +49,7 @@
         "annotations": {
             "seldon.io/engine-seldon-log-messages-externally": "true"
         },
-        "protocol": "seldon"
+        "protocol": "kfserving"
     },
     "status": {}
 }
