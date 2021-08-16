@@ -1,0 +1,55 @@
+{
+    "kind": "SeldonDeployment",
+    "apiVersion": "machinelearning.seldon.io/v1",
+    "metadata": {
+        "name": "semseg",
+        "namespace": "default",
+        "creationTimestamp": null,
+        "labels": {
+            "fluentd": "true"
+        }
+    },
+    "spec": {
+        "name": "semseg",
+        "predictors": [
+            {
+                "name": "default",
+                "graph": {
+                    "name": "semseg-container",
+                    "implementation": "SKLEARN_SERVER",
+                    "modelUri": "gs://purva-seldon-kfserving/frozen_inference_graph.pb",
+                    "logger": {
+                        "mode": "all"
+                    }
+                },
+                "componentSpecs": [
+                    {
+                        "metadata": {
+                            "creationTimestamp": "2021-08-16T05:56:17Z"
+                        },
+                        "spec": {
+                            "containers": [
+                                {
+                                    "name": "semseg-container",
+                                    "resources": {}
+                                }
+                            ]
+                        }
+                    }
+                ],
+                "replicas": 1,
+                "annotations": {
+                    "project.seldon.io/semseg-container": "default"
+                },
+                "engineResources": {},
+                "svcOrchSpec": {},
+                "traffic": 100
+            }
+        ],
+        "annotations": {
+            "seldon.io/engine-seldon-log-messages-externally": "true"
+        },
+        "protocol": "kfserving"
+    },
+    "status": {}
+}
