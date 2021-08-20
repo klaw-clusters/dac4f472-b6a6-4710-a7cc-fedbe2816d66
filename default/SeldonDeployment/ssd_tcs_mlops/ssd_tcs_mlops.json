@@ -1,0 +1,55 @@
+{
+    "kind": "SeldonDeployment",
+    "apiVersion": "machinelearning.seldon.io/v1",
+    "metadata": {
+        "name": "ssd_tcs_mlops",
+        "namespace": "default",
+        "creationTimestamp": null,
+        "labels": {
+            "fluentd": "true"
+        }
+    },
+    "spec": {
+        "name": "ssd_tcs_mlops",
+        "predictors": [
+            {
+                "name": "default",
+                "graph": {
+                    "name": "ssd_tcs_mlops-container",
+                    "implementation": "TENSORFLOW_SERVER",
+                    "modelUri": "gs://purva-seldon-kfserving/objectdection",
+                    "logger": {
+                        "mode": "all"
+                    }
+                },
+                "componentSpecs": [
+                    {
+                        "metadata": {
+                            "creationTimestamp": "2021-08-20T12:03:29Z"
+                        },
+                        "spec": {
+                            "containers": [
+                                {
+                                    "name": "ssd_tcs_mlops-container",
+                                    "resources": {}
+                                }
+                            ]
+                        }
+                    }
+                ],
+                "replicas": 1,
+                "annotations": {
+                    "project.seldon.io/ssd_tcs_mlops-container": "default"
+                },
+                "engineResources": {},
+                "svcOrchSpec": {},
+                "traffic": 100
+            }
+        ],
+        "annotations": {
+            "seldon.io/engine-seldon-log-messages-externally": "true"
+        },
+        "protocol": "tensorflow"
+    },
+    "status": {}
+}
